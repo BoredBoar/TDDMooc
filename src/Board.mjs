@@ -28,12 +28,16 @@ export class Board {
   }
 
   tick() {
-    #pieceCanFall(this.piece) 
-      ? 
-    this.piece = this.piece.map(item => {
-      const new_position = {...item, y: item.y + 1}
-      return new_position
-    })
+    this.#pieceCanFall(this.piece) 
+      ? this.piece = this.piece.map(item => {
+          const new_position = {...item, y: item.y + 1}
+          return new_position
+        })
+      : this.piece.forEach(item => {
+        this.board = [...this.board]
+        this.board[item.y][item.x] = item.pattern
+        this.piece = []
+      })
   }
 
   hasFalling() {
@@ -41,7 +45,6 @@ export class Board {
   }
 
   #pieceCanFall = (piece) => {
-    //TODO fix peiece can fall and tick to handle piece reaching the bottom of the board
-    piece.map(item => {return piece.y < this.height}) ?
+    return piece.reduce((mobile,item) => {return item.y < this.height - 1 &&  this.board[item.y + 1][item.x] == '.'},false)
   }
 }
