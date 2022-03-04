@@ -1,9 +1,9 @@
 export class Tetromino {
-    T_SHAPE
     state
 
-    constructor(blocksStr) {
-        state = TODO
+    static T_SHAPE = new Tetromino()
+    constructor() {
+        this.state = "TODO"
     }
 
     toString(){
