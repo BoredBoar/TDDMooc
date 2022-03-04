@@ -1,5 +1,3 @@
-// import { Block } from "../src/Block.mjs";
-
 export class Board {
   width;
   height;
@@ -14,7 +12,7 @@ export class Board {
   }
 
   toString() {
-    let tmp_board = [...this.board]
+    const tmp_board = [...this.board]
     this.piece.forEach(piece => {
       tmp_board[piece.y][piece.x] = piece.pattern
       // console.log(piece, tmp_board);
