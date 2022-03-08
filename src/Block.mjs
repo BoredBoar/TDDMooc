@@ -1,7 +1,9 @@
 export class Block {
-  color;
+  state
+  orientation
 
   constructor(color) {
-    this.color = color;
+    this.state = color;
+    this.orientation = 0;
   }
 }
