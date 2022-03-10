@@ -14,7 +14,7 @@ describe("Controlling tetrominoes", () => {
     board = new Board(10, 6);
   });
 
-  xit("a falling tetromino can be moved left", () => {
+  it("a falling tetromino can be moved left", () => {
     board.drop(Tetromino.T_SHAPE);
     board.tick()
     board.moveLeft()
@@ -29,7 +29,7 @@ describe("Controlling tetrominoes", () => {
     );
   });
 
-  xit("a falling tetromino can be moved right", () => {
+  it("a falling tetromino can be moved right", () => {
     board.drop(Tetromino.T_SHAPE);
     board.tick()
     board.tick()
@@ -45,7 +45,7 @@ describe("Controlling tetrominoes", () => {
     );
   });
 
-  xit("a falling tetromino can be moved down", () => {
+  it("a falling tetromino can be moved down", () => {
     board.drop(Tetromino.I_SHAPE);
     board.tick()
     board.moveDown()
@@ -53,10 +53,10 @@ describe("Controlling tetrominoes", () => {
     expect(board.toString()).to.equalShape(
       `..........
        ..........
-       ....I.....
-       ....I.....
-       ....I.....
-       ....I.....`
+       .IIII.....
+       ..........
+       ..........
+       ..........`
     );
   });
   
@@ -68,7 +68,7 @@ describe("Checking board boundaries", () => {
     board = new Board(10, 6);
   });
 
-  xit("it cannot be moved left beyond the board", () => {
+  it("it cannot be moved left beyond the board", () => {
     board.drop(Tetromino.O_SHAPE);
     board.tick()
     board.moveLeft()

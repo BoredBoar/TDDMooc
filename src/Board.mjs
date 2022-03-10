@@ -25,6 +25,18 @@ export class Board {
     this.piece = [{x: Math.floor(this.width/2), y: 0, pattern : new_piece, block: x}]
   }
 
+  moveLeft = () => {
+    this.piece = this.piece.map(shifted => {shifted.x = shifted.x - 1; return shifted})
+  }
+
+  moveRight = () => {
+    this.piece = this.piece.map(shifted => {shifted.x = shifted.x + 1; return shifted})
+  }
+
+  moveDown = () => {
+    this.piece = this.piece.map(shifted => {shifted.y = shifted.y + 1; return shifted})
+  }
+
   tick() {
     this.#pieceCanFall(this.piece) 
       ? this.piece = this.piece.map(item => {
